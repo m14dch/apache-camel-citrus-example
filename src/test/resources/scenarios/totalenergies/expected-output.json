@@ -1,0 +1,11 @@
+{
+  "messageId": "business-totalenergies",
+  "isin": "FR0000120271",
+  "name": "TotalEnergies SE",
+  "status": "ENRICHED",
+  "price": 52.17,
+  "priceCurrency": "EUR",
+  "priceAsOf": "2026-08-12",
+  "rating": "A+",
+  "source": "REFDATA-PROVIDER"
+}

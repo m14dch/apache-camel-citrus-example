@@ -1,0 +1,21 @@
+camel:
+  springboot:
+    main-run-controller: false
+
+app:
+  refdata:
+    url: http://localhost:${test.refdata.port}/api/v1/reference-data
+    username: test-user
+    password: test-password
+
+test:
+  refdata:
+    port: 18088
+
+logging:
+  level:
+    root: WARN
+    ch.example.poc: INFO
+    org.apache.kafka: WARN
+    org.springframework.context.support: ERROR
+    org.testcontainers: INFO

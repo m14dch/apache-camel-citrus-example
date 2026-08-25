@@ -1,0 +1,7 @@
+{
+  "messageId": $variables.messageId,
+  "isin": $variables.isin,
+  "status": "FAILED",
+  "errorCode": "REFDATA_UNAVAILABLE",
+  "errorMessage": $variables.errorMessage
+}

@@ -1,0 +1,9 @@
+{
+  "identifier": {
+    "type": "ISIN",
+    "value": .isin
+  },
+  "displayName": .name,
+  "baseCurrency": .currency,
+  "assetClass": .instrumentType
+}

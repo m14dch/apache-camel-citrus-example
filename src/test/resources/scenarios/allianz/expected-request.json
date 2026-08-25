@@ -1,0 +1,9 @@
+{
+  "identifier": {
+    "type": "ISIN",
+    "value": "DE0008404005"
+  },
+  "displayName": "Allianz SE",
+  "baseCurrency": "EUR",
+  "assetClass": "EQUITY"
+}

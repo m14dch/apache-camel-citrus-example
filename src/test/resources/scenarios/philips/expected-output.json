@@ -1,0 +1,11 @@
+{
+  "messageId": "business-philips",
+  "isin": "NL0000009538",
+  "name": "Philips NV",
+  "status": "ENRICHED",
+  "price": 24.83,
+  "priceCurrency": "EUR",
+  "priceAsOf": "2026-08-12",
+  "rating": "BBB+",
+  "source": "REFDATA-PROVIDER"
+}

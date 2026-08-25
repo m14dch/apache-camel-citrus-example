@@ -1,0 +1,42 @@
+camel:
+  main:
+    use-mdc-logging: true
+  springboot:
+    name: instrument-enrichment-poc
+    main-run-controller: true
+  component:
+    http:
+      automatic-retries-disabled: true
+    kafka:
+      brokers: ${KAFKA_BROKERS:localhost:9092}
+
+app:
+  kafka:
+    in-topic: instruments.in
+    out-topic: instruments.out
+    consumer-group: instrument-enrichment
+  refdata:
+    url: ${REFDATA_URL:https://refdata.example.ch/api/v1/reference-data}
+    username: ${REFDATA_USER:poc-user}
+    password: ${REFDATA_PASSWORD:poc-password}
+    connect-timeout-ms: 2000
+    socket-timeout-ms: 5000
+  retry:
+    max-redeliveries: 3
+    delay-ms: 300
+    backoff-multiplier: 2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+logging:
+  structured:
+    format:
+      console: logstash
+    json:
+      rename:
+        camel.correlationId: messageId
+        camel.messageId: camelMessageId

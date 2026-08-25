@@ -1,0 +1,11 @@
+{
+  "messageId": $variables.messageId,
+  "isin": $variables.isin,
+  "name": $variables.name,
+  "status": "ENRICHED",
+  "price": .valuation.price,
+  "priceCurrency": .valuation.currency,
+  "priceAsOf": .valuation.asOf,
+  "rating": .rating,
+  "source": .source
+}

@@ -1,0 +1,9 @@
+{
+  "identifier": {
+    "type": "ISIN",
+    "value": "NL0000009538"
+  },
+  "displayName": "Philips NV",
+  "baseCurrency": "EUR",
+  "assetClass": "EQUITY"
+}

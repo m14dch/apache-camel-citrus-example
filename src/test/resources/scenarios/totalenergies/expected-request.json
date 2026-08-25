@@ -1,0 +1,9 @@
+{
+  "identifier": {
+    "type": "ISIN",
+    "value": "FR0000120271"
+  },
+  "displayName": "TotalEnergies SE",
+  "baseCurrency": "EUR",
+  "assetClass": "EQUITY"
+}

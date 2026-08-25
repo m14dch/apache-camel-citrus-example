@@ -1,0 +1,11 @@
+{
+  "messageId": "business-allianz",
+  "isin": "DE0008404005",
+  "name": "Allianz SE",
+  "status": "ENRICHED",
+  "price": 304.60,
+  "priceCurrency": "EUR",
+  "priceAsOf": "2026-08-12",
+  "rating": "AA-",
+  "source": "REFDATA-PROVIDER"
+}
