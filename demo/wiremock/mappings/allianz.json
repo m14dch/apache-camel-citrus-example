@@ -1,0 +1,22 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/api/v1/reference-data",
+    "headers": {
+      "Authorization": { "equalTo": "Basic cG9jLXVzZXI6cG9jLXBhc3N3b3Jk" }
+    },
+    "bodyPatterns": [
+      { "matchesJsonPath": { "expression": "$.identifier.value", "equalTo": "DE0008404005" } }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": {
+      "identifier": "DE0008404005",
+      "valuation": { "price": 304.60, "currency": "EUR", "asOf": "2026-08-12" },
+      "rating": "AA-",
+      "source": "REFDATA-PROVIDER"
+    }
+  }
+}

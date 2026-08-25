@@ -1,8 +1,8 @@
 camel:
   main:
+    name: instrument-enrichment-poc
     use-mdc-logging: true
   springboot:
-    name: instrument-enrichment-poc
     main-run-controller: true
   component:
     http:

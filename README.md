@@ -60,6 +60,60 @@ REFDATA_PASSWORD=poc-password \
 mvn spring-boot:run
 ```
 
+### Run the presentation environment with Camel TUI
+
+The `demo` profile connects the application to a local Kafka broker and deterministic WireMock
+reference-data service. These long-running services are deliberately separate from the
+Testcontainers infrastructure owned by the automated tests.
+
+Start the external systems and create both Kafka topics:
+
+```shell
+./demo/start.sh
+```
+
+Start the application in a second terminal:
+
+```shell
+mvn spring-boot:run -Dspring-boot.run.profiles=demo
+```
+
+Open Camel TUI in a third terminal. The connector lets TUI discover the application started in
+the second terminal:
+
+```shell
+./demo/tui.sh
+```
+
+Keep the Maven terminal visible for the application's structured JSON logs. Camel CLI 4.22 does
+not support `camel log` for Spring Boot applications, so the TUI **Log** tab remains empty for an
+application discovered through the CLI connector. Use TUI for runtime inspection rather than log
+tailing: **Activity**, **Diagram**, **Route**, **Endpoint**, **Inspect**, and **More → Kafka**.
+
+Send one or more recognizable business messages from another terminal:
+
+```shell
+./demo/send.sh allianz
+./demo/send.sh totalenergies
+./demo/send.sh philips
+```
+
+Use the TUI's **Activity**, **Diagram**, **Route**, **Endpoint**, and **Inspect** tabs to follow the
+exchanges. Full tracing and activity capture are enabled only by the `demo` profile. Send messages
+after the application has started; previously processed messages are not added retroactively.
+Each scenario has a distinct `messageId` and ISIN. Read all published results independently from
+TUI with:
+
+```shell
+./demo/results.sh
+```
+
+Stop the external systems when the demonstration is complete:
+
+```shell
+docker compose down
+```
+
 Topics, service URL, credentials, HTTP timeouts, and retry settings are externalized in
 `application.yml`. The checked-in credential defaults are deliberately non-secret demo values.
 
@@ -124,9 +178,11 @@ The single broad exception policy retries every failure, including HTTP 4xx resp
 route should use narrower exception policies and retry only I/O failures and retryable 5xx status
 codes.
 
-The project pins Spring Boot 3.5.16, Camel 4.14.8 LTS, Citrus 4.10.2, and the current Testcontainers
-1.x line compatible with the required `org.testcontainers:kafka` artifact. BOMs govern their
-transitive dependencies. Camel's current HTTP component calls its response wait option
+The project pins Spring Boot 4.1.0, Camel 4.22.0 LTS, Citrus 5.0.0-M2, and the current
+Testcontainers 1.x line compatible with the required `org.testcontainers:kafka` artifact. Citrus
+5 is currently a milestone dependency used to align the tests with Spring Boot 4 and Jetty 12.1;
+replace it with Citrus 5 GA when available. BOMs govern transitive dependencies. Camel's current
+HTTP component calls its response wait option
 `responseTimeout`; it is fed by the externally documented `app.refdata.socket-timeout-ms` property.
 
 ## License

@@ -1,0 +1,18 @@
+app:
+  refdata:
+    url: http://localhost:18089/api/v1/reference-data
+    username: poc-user
+    password: poc-password
+  retry:
+    delay-ms: 500
+
+camel:
+  trace:
+    enabled: true
+    activity-enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics

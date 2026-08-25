@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.16</version>
+        <version>4.1.0</version>
         <relativePath/>
     </parent>
 
@@ -35,8 +35,8 @@
 
     <properties>
         <java.version>21</java.version>
-        <camel.version>4.14.8</camel.version>
-        <citrus.version>4.10.2</citrus.version>
+        <camel.version>4.22.0</camel.version>
+        <citrus.version>5.0.0-M2</citrus.version>
         <testcontainers.version>1.21.4</testcontainers.version>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -94,6 +94,10 @@
             <artifactId>camel-jsonpath-starter</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.apache.camel.springboot</groupId>
+            <artifactId>camel-cli-connector-starter</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
@@ -115,7 +119,7 @@
         </dependency>
         <dependency>
             <groupId>org.citrusframework</groupId>
-            <artifactId>citrus-junit5</artifactId>
+            <artifactId>citrus-junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
